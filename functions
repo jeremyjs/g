@@ -1,0 +1,10 @@
+function git-clone-func () {
+  GIT_USERNAME_PATTERN="\w+-?\w+(?!-)"
+  GIT_REPONAME_PATTERN="([-_\\w]+)\\/([-_.\\w]+)"
+  GIT_PATH_PATTERN="^$GIT_USERNAME_PATTERN/$GIT_REPONAME_PATTERN$"
+  if [[ $1 =~ ^https://.*$ ]]; then
+    git clone $@
+  else
+    git clone https://github.com/$1 $2
+  fi
+}
