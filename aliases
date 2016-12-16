@@ -39,3 +39,37 @@ alias gbd-merged="git branch --merged | grep -v '\*' | grep -v master | grep -v 
 
 # remove sensitive keys and such from git history
 alias git-clean="git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch $1' --prune-empty --tag-name-filter cat -- --all"
+
+
+# a = add
+# aa = add -A
+# co = checkout
+# cb = checkout -b
+# c = commit -v
+# ca = commit -av
+# cl = clone
+# cm = commit -vm
+# cam = commit -avm
+# amend = commit --amend
+# b = branch
+# ba = branch -a
+# bv = branch -vv
+# bva = branch -vva
+# bd = branch -d
+# p = push
+# pt = push --tags
+# pl = pull
+# s = status
+# sh = show
+# st = stash
+# d = diff
+# dc = diff --cached
+# cle = config --local --edit
+# cge = config --global --edit
+# l = log --pretty=oneline --abbrev-commit
+# ls = log --stat
+# lg = log --pretty=oneline --abbrev-commit --graph
+# reset = reset --soft
+# retro = "log --oneline --no-merges --after=\"today 00:00:00\" --reverse --pretty=format:\"%h %cd %s\" --date=format:\"%a %H:%M\""
+# rb = rebase -i
+# up = remote update --prune
