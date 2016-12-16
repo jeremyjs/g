@@ -1,10 +1,25 @@
+GIT_USERNAME_PATTERN="\w+-?\w+(?!-)"
+GIT_REPONAME_PATTERN="([-_\\w]+)\\/([-_.\\w]+)"
+GIT_PATH_PATTERN="^$GIT_USERNAME_PATTERN/$GIT_REPONAME_PATTERN$"
+
 function git-clone-func () {
-  GIT_USERNAME_PATTERN="\w+-?\w+(?!-)"
-  GIT_REPONAME_PATTERN="([-_\\w]+)\\/([-_.\\w]+)"
-  GIT_PATH_PATTERN="^$GIT_USERNAME_PATTERN/$GIT_REPONAME_PATTERN$"
   if [[ $1 =~ ^https://.*$ ]]; then
     git clone $@
   else
     git clone https://github.com/$1 $2
+  fi
+}
+
+function git-remote-add-func () {
+  NAME=$1
+  REMOTE=$2
+  if [ -z ${2+x} ]; then
+    NAME="origin"
+    REMOTE=$1
+  fi
+  if [[ $1 =~ ^https://.*$ ]]; then
+    git remote add $NAME $REMOTE
+  else
+    git remote add $NAME https://github.com/$REMOTE
   fi
 }
